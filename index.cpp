@@ -1,21 +1,25 @@
 #include <iostream>
 using namespace std;
 
-void deposit(int balance,int money){
+void deposit(int balance,int amount){
     cout << "Enter money to deposit" << endl;
-    cin >> money;
-    cout << balance - money;
+    cin >> amount;
+    if(amount > balance){
+        cout << "You have entered more than the amount in your balance" << endl;
+        return;
+    }
+    cout << balance - amount;
 }
 
-void withdraw(int balance,int money){
+void withdraw(int balance,int amount){
     cout << "Enter money to withdraw" << endl;
-    cin >> money;
-    cout << balance + money;
+    cin >> amount;
+    cout << balance + amount;
 }
 
 int main(){
     int balance = 1000;
-    int money;
+    int amount;
     int choice = 0;
 
     cout << "Enter your choice:" << endl;
@@ -30,10 +34,10 @@ int main(){
         cout << balance;
         break;
     case 2: 
-        deposit(balance,money);
+        deposit(balance,amount);
         break;
     case 3:
-        withdraw(balance,money);
+        withdraw(balance,amount);
         break;
     case 4:
         cout << "Thank your visit";
